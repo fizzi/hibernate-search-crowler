@@ -1,0 +1,253 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <!-- 
+        The link to the hibernate-search parent POM only exists out of convenience since we are creating
+        this archetype from an existing module of the Hibernate Search code base.
+        If you want to know more about this process check the maven-archetype-plugin documentation
+        http://maven.apache.org/archetype/maven-archetype-plugin, especially the goal create-from-project
+      
+        If you want to use this quick-start project as the base for your own application you should remove the
+        <parent> entry. See also the other pointers in this pom!
+    -->
+
+    <groupId>org.geosdi</groupId>
+    <artifactId>crowler</artifactId>
+    <packaging>jar</packaging>
+    <name>Hibernate Search Crowler</name>
+    <version>1.0-SNAPSHOT</version>
+    <url>http://www.myorganization.org</url>
+    <description>Hibernate Search quickstart is an archetype for a minimal application using fulltext query
+        capabilities.</description>
+
+    <scm>
+        <connection>scm:git:git://github.com/hibernate/hibernate-search.git</connection>
+        <developerConnection>scm:git:git@github.com:hibernate/hibernate-search.git</developerConnection>
+        <url>http://github.com/hibernate/hibernate-search</url>
+    </scm>
+
+    <organization>
+        <name>Hibernate</name>
+        <url>http://www.hibernate.org</url>
+    </organization>
+
+    <licenses>
+        <license>
+            <name>GNU Lesser General Public License</name>
+            <url>http://www.gnu.org/licenses/lgpl-2.1.html</url>
+        </license>
+    </licenses>
+    <repositories>  
+        <!-- geoSDI -->
+        <repository>
+            <id>geosdi</id>
+            <name>geoSDI Repository</name>
+            <url>http://repo.geosdi.org</url>
+        </repository>
+        
+        <!-- ibiblio -->
+        <repository>
+            <id>ibiblio-maven2-repository</id>
+            <name>ibiblio Repository for Maven</name>
+            <url>http://mirrors.ibiblio.org/pub/mirrors/maven2</url>
+            <layout>default</layout>
+            <snapshots>
+                <enabled>false</enabled>
+            </snapshots>
+        </repository>
+        
+        <!-- Spring -->
+        <repository>
+            <id>spring-release</id>
+            <name>Spring Portfolio Release Repository</name>
+            <url>http://maven.springframework.org/release</url>
+        </repository>
+        <repository>
+            <id>spring-external</id>
+            <name>Spring Portfolio External Repository</name>
+            <url>http://maven.springframework.org/external</url>
+        </repository>
+
+        <repository>
+            <id>jboss-public-repository-group</id>
+            <name>JBoss Public Maven Repository Group</name>
+            <url>https://repository.jboss.org/nexus/content/groups/public/</url>
+            <layout>default</layout>
+            <releases>
+                <enabled>true</enabled>
+                <updatePolicy>never</updatePolicy>
+            </releases>
+            <snapshots>
+                <enabled>true</enabled>
+                <updatePolicy>never</updatePolicy>
+            </snapshots>
+        </repository>
+        
+        <!-- TERRACOTTA 
+        <repository>
+            <id>terracotta-repository</id>
+            <url>http://www.terracotta.org/download/reflector/releases</url>
+            <releases>
+                <enabled>true</enabled>
+            </releases>
+        </repository>
+       -->
+        <repository>
+            <url>http://oss.sonatype.org/content/repositories/sourceforge-releases</url>
+            <id>sonatype-mirror</id>
+            <layout>default</layout>
+            <name>Repository for library including ehcache recent ones</name>
+        </repository>
+        
+        <repository>
+            <id>sonatype-snaphot</id>
+            <name>sonatype-snaphot</name>
+            <url>https://oss.sonatype.org/content/repositories/snapshots/</url>
+        </repository>
+        
+        <repository>
+            <id>Hibernate Spatial repo</id>
+            <url>http://www.hibernatespatial.org/repository</url>
+        </repository>
+
+    </repositories>
+    <developers>
+        <developer>
+            <id>epbernard</id>
+            <name>Emmanuel Bernard</name>
+            <email>emmanuel@hibernate.org</email>
+            <url>http://in.relation.to/Bloggers/Emmanuel</url>
+        </developer>
+        <developer>
+            <id>hardy.ferentschik</id>
+            <name>Hardy Ferentschik</name>
+            <email>hardy@hibernate.org</email>
+            <url>http://in.relation.to/Bloggers/Hardy</url>
+        </developer>
+        <developer>
+            <id>sannegrinovero</id>
+            <name>Sanne Grinovero</name>
+            <email>sanne@hibernate.org</email>
+            <url>http://in.relation.to/Bloggers/Sanne</url>
+        </developer>
+    </developers>
+
+    <dependencies>
+        <dependency>
+            <groupId>org.hibernatespatial</groupId>
+            <artifactId>hibernate-spatial-postgis</artifactId>
+            <version>1.1</version>
+        </dependency>
+        
+        <dependency>
+            <groupId>org.hibernate</groupId>
+            <artifactId>hibernate-core</artifactId>
+            <version>4.1.1.Final</version>
+        </dependency>
+        
+        <dependency>
+            <groupId>org.hibernate</groupId>
+            <artifactId>hibernate-search</artifactId>
+            <!-- When removing the <parent> node you will have to explicitly set the hibernate-search version -->
+            <version>4.1.1.Final</version>
+        </dependency>
+        <dependency>
+            <groupId>org.hibernate</groupId>
+            <artifactId>hibernate-search-analyzers</artifactId>
+            <!-- When removing the <parent> node you will have to explicitly set the hibernate-search version -->
+            <version>4.1.1.Final</version>
+        </dependency>
+        <dependency>
+            <groupId>org.hibernate</groupId>
+            <artifactId>hibernate-entitymanager</artifactId>
+            <!-- When removing the <parent> node you have to explicitly set the Hibernate Entity Manager version -->
+            <!--<version></version>-->
+            <version>4.1.1.Final</version>
+        </dependency>
+        <dependency>
+            <groupId>junit</groupId>
+            <artifactId>junit</artifactId>
+            <scope>test</scope>
+            <version>4.11</version>
+        </dependency>
+        
+        <dependency>
+            <groupId>commons-dbcp</groupId>
+            <artifactId>commons-dbcp</artifactId>
+            <version>20030825.184428</version>
+        </dependency>
+        
+        <dependency>
+            <groupId>org.postgis</groupId>
+            <artifactId>postgis-jdbc</artifactId>
+            <version>1.3.3</version>
+        </dependency>
+        
+        <dependency>
+            <groupId>postgresql</groupId>
+            <artifactId>postgresql</artifactId>
+            <version>9.1-902.jdbc4</version>
+        </dependency>
+        
+        <!-- logging dependencies, delegate all to slf4j and use logback -->
+        <dependency>
+            <groupId>org.slf4j</groupId>
+            <artifactId>slf4j-api</artifactId>
+            <version>1.7.2</version>
+        </dependency>
+        <dependency>
+            <groupId>org.slf4j</groupId>
+            <artifactId>jcl-over-slf4j</artifactId>
+            <version>1.7.2</version>
+        </dependency>
+        <dependency>
+            <groupId>org.slf4j</groupId>
+            <artifactId>log4j-over-slf4j</artifactId>
+            <version>1.7.2</version>
+        </dependency>
+        <dependency>
+            <groupId>ch.qos.logback</groupId>
+            <artifactId>logback-classic</artifactId>
+            <version>1.0.9</version>
+        </dependency>
+    </dependencies>
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <configuration>
+                    <source>1.6</source>
+                    <target>1.6</target>
+                </configuration>
+            </plugin>
+            <plugin>
+                <artifactId>maven-deploy-plugin</artifactId>
+                <configuration>
+                    <skip>true</skip>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
+    <profiles>
+        <!-- When removing the <parent> node the profile can be removed -->
+        <profile>
+            <id>archetype</id>
+            <activation>
+                <file>
+                    <exists>archetype.properties</exists>
+                </file>
+            </activation>
+            <build>
+                <plugins>
+                    <plugin>
+                        <groupId>org.apache.maven.plugins</groupId>
+                        <artifactId>maven-archetype-plugin</artifactId>
+                    </plugin>
+                </plugins>
+            </build>
+        </profile>
+    </profiles>
+</project>
