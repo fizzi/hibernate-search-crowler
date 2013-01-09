@@ -51,9 +51,9 @@ public class IndexAndSearchTest {
         List<Contact> contacts = new ArrayList<Contact>();
 
         
-        //index();
+        index();
         double startTime = System.currentTimeMillis(); 
-        contacts = search("provincia di potenza");
+        contacts = search("assessorato");
         long endTime = System.currentTimeMillis(); 
         log.info("Tempo = " + (endTime - startTime)/1000);
         
